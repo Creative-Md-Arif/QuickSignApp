@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="30dp"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="15dp"
+    app:cardMaxElevation="15dp"
+    tools:context=".views.AddProfileActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Add Profile"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:fontFamily="@font/aladin"
+            android:textSize="32sp"/>
+
+        <!-- Name Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Full Name"
+            app:boxStrokeColor="#6200EE">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameEditTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Email Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Email"
+            app:boxStrokeColor="#6200EE">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEditTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Date of Birth Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dobInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Date of Birth"
+            app:boxStrokeColor="#6200EE">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dobEditTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- District Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/districtInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="District"
+            app:boxStrokeColor="#6200EE">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/districtEditTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Mobile Number Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/mobileInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Mobile Number"
+            app:boxStrokeColor="#6200EE">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mobileEditTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/addBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#6200EE"
+            android:text="Add Profile"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

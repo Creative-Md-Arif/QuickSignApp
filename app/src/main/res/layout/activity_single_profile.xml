@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="15dp"
+    app:cardMaxElevation="15dp"
+    android:layout_margin="30dp"
+    tools:context=".views.SingleProfileActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:background="#FFFFFF">
+
+        <!-- Name TextView -->
+        <TextView
+            android:id="@+id/nameLabelTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name: "
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/nameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mohammad Arif "
+            android:fontFamily="@font/aladin"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:padding="8dp" />
+
+        <!-- Email TextView -->
+        <TextView
+            android:id="@+id/emailLabelTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Email: "
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/emaiTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="example@gmail.com"
+            android:fontFamily="@font/aladin"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:padding="8dp" />
+
+        <!-- Date of Birth TextView -->
+        <TextView
+            android:id="@+id/dobLabelTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of Birth: "
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:padding="8dp" />
+        <TextView
+            android:id="@+id/dobTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9/23/2024"
+            android:fontFamily="@font/aladin"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:padding="8dp" />
+
+
+        <!-- District TextView -->
+        <TextView
+            android:id="@+id/districtLabelTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="District: "
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/districtLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dhaka"
+            android:fontFamily="@font/aladin"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:padding="8dp" />
+
+        <!-- Mobile TextView -->
+        <TextView
+            android:id="@+id/mobileLabelTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mobile: "
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/mobileLabelTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0170000000"
+            android:fontFamily="@font/aladin"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:padding="8dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="80dp"
+        android:weightSum="1">
+        <ImageButton
+            android:layout_weight=".5"
+            android:id="@+id/addBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cornerRadius="15dp"
+            android:src="@drawable/edit"
+            android:backgroundTint="#8BC34A"
+            android:layout_margin="8dp" />
+        <ImageButton
+            android:layout_weight=".5"
+            android:id="@+id/deleteBtn"
+            android:layout_width="wrap_content"
+            android:backgroundTint="#FF9800"
+            android:src="@drawable/delete"
+            android:layout_height="wrap_content"
+            app:cornerRadius="15dp"
+            android:layout_margin="8dp"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
