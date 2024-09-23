@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/aladin"
         android:text="Welcome to User Registration App"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,7 +29,7 @@
         android:backgroundTint="#00000000"
         android:fontFamily="@font/aladin"
         android:text="Show UserList"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         app:cornerRadius="10dp"
@@ -37,7 +37,7 @@
         app:layout_constraintStart_toStartOf="@+id/welcomeTxt"
         app:layout_constraintTop_toBottomOf="@+id/welcomeTxt"
         app:strokeWidth="2dp"
-        app:strokeColor="@color/black"
+        app:strokeColor="@color/white"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

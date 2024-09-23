@@ -39,9 +39,10 @@
             app:boxStrokeColor="#6200EE">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/nameEditTxt"
+                android:id="@+id/profileNameEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="@color/white"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,9 +56,10 @@
             app:boxStrokeColor="#6200EE">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/emailEditTxt"
+                android:id="@+id/profileEmailEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="@color/white"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,9 +73,10 @@
             app:boxStrokeColor="#6200EE">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/dobEditTxt"
+                android:id="@+id/profileDobEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="@color/white"
                 android:inputType="date" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,9 +90,10 @@
             app:boxStrokeColor="#6200EE">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/districtEditTxt"
+                android:id="@+id/profileDistrictEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="@color/white"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -103,9 +107,10 @@
             app:boxStrokeColor="#6200EE">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/mobileEditTxt"
+                android:id="@+id/profileMobileEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="@color/white"
                 android:inputType="phone" />
         </com.google.android.material.textfield.TextInputLayout>
 
