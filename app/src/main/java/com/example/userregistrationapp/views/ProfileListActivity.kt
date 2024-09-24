@@ -5,6 +5,8 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -19,6 +21,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class ProfileListActivity : AppCompatActivity() {
     private lateinit var profileViewModel: UserProfileViewModel
     private lateinit var profileAdapter: ProfileAdapter
+    private lateinit var noDataTextView: TextView
 
     private lateinit var progressDialog: ProgressDialog // ProgressDialog for loading animation
 
@@ -36,9 +39,19 @@ class ProfileListActivity : AppCompatActivity() {
         recyclerView.adapter = profileAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
+        noDataTextView = findViewById(R.id.noDataTextView)
 
-        profileViewModel.getUserProfiles().observe(this, Observer {
-            profileAdapter.submitList(it)
+
+        profileViewModel.getUserProfiles().observe(this, Observer { profiles ->
+            profileAdapter.submitList(profiles)
+            // Show or hide the no data message based on the list
+            if (profiles.isEmpty()) {
+                noDataTextView.visibility = View.VISIBLE
+                recyclerView.visibility = View.GONE
+            } else {
+                noDataTextView.visibility = View.GONE
+                recyclerView.visibility = View.VISIBLE
+            }
         })
 
 

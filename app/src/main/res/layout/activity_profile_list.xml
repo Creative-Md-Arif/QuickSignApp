@@ -8,6 +8,16 @@
     tools:context=".views.ProfileListActivity">
 
 
+    <TextView
+        android:id="@+id/noDataTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="No user data"
+        android:textSize="18sp"
+        android:visibility="gone"
+         />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
