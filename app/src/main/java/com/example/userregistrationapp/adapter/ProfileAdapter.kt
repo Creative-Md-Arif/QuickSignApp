@@ -29,13 +29,6 @@ class ProfileAdapter() : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHold
         onEditClickListener = listener
     }
 
-    fun setOnEditButtonHoverListener(listener: ((View) -> Unit)?) {
-        onEditButtonHoverListener = listener
-    }
-
-
-
-
 
    inner class ProfileViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val profileName: TextView = itemView.findViewById(R.id.userNameTxt)
@@ -70,12 +63,6 @@ class ProfileAdapter() : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHold
                     onEditClickListener?.invoke(profile)
                 }
             }
-
-            updateBtn.setOnHoverListener { view, event ->
-                onEditButtonHoverListener?.invoke(view)
-                false
-            }
-
 
 
         }

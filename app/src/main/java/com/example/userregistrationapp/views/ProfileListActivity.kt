@@ -61,16 +61,27 @@ class ProfileListActivity : AppCompatActivity() {
             intent.putExtra("USER_PROFILE", it)
             startActivity(intent)
         }
-        profileAdapter.setOnEditClickListener {
-            val intent = Intent(this, UpdateProfileActivity::class.java)
-            intent.putExtra("USER_PROFILE", it)
-            startActivity(intent)
+
+        fun showEditConfirmationDialog(userProfile: UserProfile) {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Edit Profile")
+            builder.setMessage("Are you sure you want to edit this profile?")
+
+            builder.setPositiveButton("Yes") { _, _ ->
+                val intent = Intent(this, UpdateProfileActivity::class.java)
+                intent.putExtra("USER_PROFILE", userProfile)
+                startActivity(intent)
+            }
+
+            builder.setNegativeButton("No") { dialog, _ ->
+                dialog.dismiss()
+            }
+
+            builder.create().show()
         }
 
-
-        // Set tooltip on edit button
-        profileAdapter.setOnEditButtonHoverListener { editButton ->
-            TooltipCompat.setTooltipText(editButton, "Edit Profile")
+        profileAdapter.setOnEditClickListener { userProfile ->
+            showEditConfirmationDialog(userProfile)
         }
 
         fun showDeleteConfirmationDialog(userProfile: UserProfile) {

@@ -44,10 +44,15 @@ class SingleProfileActivity : AppCompatActivity() {
         deleteBtn = findViewById(R.id.deleteBtn)
 
         updateBtn.setOnClickListener{
+            val intent = Intent(this, UpdateProfileActivity::class.java)
+            intent.putExtra("USER_PROFILE", userProfile)
+            startActivity(intent)
             showUpdateConfirmationDialog()
         }
 
         deleteBtn.setOnClickListener{
+            profileViewModel.deleteUserProfile(userProfile)
+            finish()
             showDeleteConfirmationDialog()
         }
 
