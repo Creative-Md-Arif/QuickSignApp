@@ -1,7 +1,9 @@
 package com.example.userregistrationapp.views
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +17,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class ProfileListActivity : AppCompatActivity() {
     private lateinit var profileViewModel: UserProfileViewModel
     private lateinit var profileAdapter: ProfileAdapter
+
+    private lateinit var progressDialog: ProgressDialog // ProgressDialog for loading animation
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_list)
@@ -48,9 +54,23 @@ class ProfileListActivity : AppCompatActivity() {
             profileViewModel.deleteUserProfile(it)
         }
 
-        findViewById<FloatingActionButton>(R.id.floatingActionButton).setOnClickListener {
+        // Initialize the ProgressDialog
+        progressDialog = ProgressDialog(this).apply {
+            setTitle("Loading")
+            setMessage("Please wait...")
+            setCancelable(false) // Disable canceling the dialog by tapping outside
+        }
 
-            startActivity(Intent(this, AddProfileActivity::class.java))
+        findViewById<FloatingActionButton>(R.id.floatingActionButton).setOnClickListener {
+            // Show the loading animation
+            progressDialog.show()
+
+            // Delay for 1 second (1000 milliseconds) before starting AddProfileActivity
+            Handler().postDelayed({
+                progressDialog.dismiss() // Dismiss the loading animation
+                startActivity(Intent(this, AddProfileActivity::class.java))
+            }, 1000)
+
         }
     }
 }

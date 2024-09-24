@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/aladin"
-        android:text="Welcome to User Registration App"
+        android:text="Welcome to QuicSign App"
         android:textColor="@color/white"
         android:textSize="22sp"
         android:textStyle="bold"
