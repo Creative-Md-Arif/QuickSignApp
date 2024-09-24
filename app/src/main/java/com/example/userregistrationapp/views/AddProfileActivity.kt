@@ -1,5 +1,6 @@
 package com.example.userregistrationapp.views
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -9,6 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.userregistrationapp.R
 import com.example.userregistrationapp.model.UserProfile
 import com.example.userregistrationapp.viewmodel.UserProfileViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class AddProfileActivity : AppCompatActivity() {
     private lateinit var profileViewModel: UserProfileViewModel
@@ -19,6 +23,7 @@ class AddProfileActivity : AppCompatActivity() {
     private lateinit var districtTxt: EditText
     private lateinit var mobileTxt: EditText
     private lateinit var saveBtn: Button
+    private lateinit var progressDialog: ProgressDialog
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,9 +37,15 @@ class AddProfileActivity : AppCompatActivity() {
         dobTxt = findViewById(R.id.profileDobEt)
         districtTxt = findViewById(R.id.profileDistrictEt)
         mobileTxt = findViewById(R.id.profileMobileEt)
-
-
         saveBtn = findViewById(R.id.addBtn)
+
+
+        // Initialize the ProgressDialog
+        progressDialog = ProgressDialog(this).apply {
+            setTitle("Saving Profile")
+            setMessage("Please wait...")
+            setCancelable(false) // Disable canceling the dialog by tapping outside
+        }
 
 
 
@@ -48,6 +59,7 @@ class AddProfileActivity : AppCompatActivity() {
             if (name.isEmpty() || email.isEmpty() || dob.isEmpty() || district.isEmpty() || mobile.isEmpty()) {
                 Toast.makeText(this, "Please fill in all the fields", Toast.LENGTH_SHORT).show()
             } else {
+                progressDialog.show()
 
                 val userProfile = UserProfile(
                     name = name,
@@ -56,10 +68,21 @@ class AddProfileActivity : AppCompatActivity() {
                     district = district,
                     mobile = mobile
                 )
-                profileViewModel.insertUserProfile(userProfile)
-                finish()
+                CoroutineScope(Dispatchers.IO).launch {
+                    profileViewModel.insertUserProfile(userProfile)
+
+                    // Hide the loading animation once the profile is saved
+                    runOnUiThread {
+                        progressDialog.dismiss()
+                        Toast.makeText(
+                            this@AddProfileActivity,
+                            "Profile saved successfully!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        finish()
+                    }
+                }
             }
         }
     }
-
 }
