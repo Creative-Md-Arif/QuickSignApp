@@ -1,5 +1,6 @@
 package com.example.userregistrationapp.views
 
+import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.userregistrationapp.R
 import com.example.userregistrationapp.adapter.ProfileAdapter
+import com.example.userregistrationapp.model.UserProfile
 import com.example.userregistrationapp.viewmodel.UserProfileViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -35,7 +37,7 @@ class ProfileListActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
 
-        profileViewModel.getUserProfiles().observe(this, Observer{
+        profileViewModel.getUserProfiles().observe(this, Observer {
             profileAdapter.submitList(it)
         })
 
@@ -50,8 +52,29 @@ class ProfileListActivity : AppCompatActivity() {
             intent.putExtra("USER_PROFILE", it)
             startActivity(intent)
         }
-        profileAdapter.setOnDeleteClickListener {
-            profileViewModel.deleteUserProfile(it)
+
+        fun showDeleteConfirmationDialog(userProfile: UserProfile) {
+            // Create an AlertDialog Builder
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Delete Profile")
+            builder.setMessage("Are you sure you want to delete this profile?")
+
+            // Set up the buttons
+            builder.setPositiveButton("Yes") { _, _ ->
+                profileViewModel.deleteUserProfile(userProfile) // Delete the profile
+            }
+
+            builder.setNegativeButton("No") { dialog, _ ->
+                dialog.dismiss()
+            }
+
+            // Show the dialog
+
+            builder.create().show()
+        }
+
+        profileAdapter.setOnDeleteClickListener { userProfile ->
+            showDeleteConfirmationDialog(userProfile)
         }
 
         // Initialize the ProgressDialog
@@ -70,7 +93,7 @@ class ProfileListActivity : AppCompatActivity() {
                 progressDialog.dismiss() // Dismiss the loading animation
                 startActivity(Intent(this, AddProfileActivity::class.java))
             }, 1000)
-
         }
     }
 }
+
