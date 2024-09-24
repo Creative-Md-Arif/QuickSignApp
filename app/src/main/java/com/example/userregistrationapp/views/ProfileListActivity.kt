@@ -8,6 +8,7 @@ import android.os.Handler
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.TooltipCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -66,6 +67,12 @@ class ProfileListActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
+        // Set tooltip on edit button
+        profileAdapter.setOnEditButtonHoverListener { editButton ->
+            TooltipCompat.setTooltipText(editButton, "Edit Profile")
+        }
+
         fun showDeleteConfirmationDialog(userProfile: UserProfile) {
             // Create an AlertDialog Builder
             val builder = AlertDialog.Builder(this)
@@ -107,6 +114,7 @@ class ProfileListActivity : AppCompatActivity() {
                 startActivity(Intent(this, AddProfileActivity::class.java))
             }, 1000)
         }
+
     }
 }
 

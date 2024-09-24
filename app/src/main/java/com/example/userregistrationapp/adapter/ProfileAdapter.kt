@@ -15,6 +15,8 @@ class ProfileAdapter() : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHold
     private var onItemClickListener: ((UserProfile) -> Unit)? = null
     private var onDeleteClickListener: ((UserProfile) -> Unit)? = null
     private var onEditClickListener: ((UserProfile) -> Unit)? = null
+    private var onEditButtonHoverListener: ((View) -> Unit)? = null
+
 
     fun setOnItemClickListener(listener: ((UserProfile) -> Unit)?) {
        onItemClickListener = listener
@@ -26,6 +28,12 @@ class ProfileAdapter() : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHold
     fun setOnEditClickListener(listener: ((UserProfile) -> Unit)?) {
         onEditClickListener = listener
     }
+
+    fun setOnEditButtonHoverListener(listener: ((View) -> Unit)?) {
+        onEditButtonHoverListener = listener
+    }
+
+
 
 
 
@@ -62,6 +70,13 @@ class ProfileAdapter() : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHold
                     onEditClickListener?.invoke(profile)
                 }
             }
+
+            updateBtn.setOnHoverListener { view, event ->
+                onEditButtonHoverListener?.invoke(view)
+                false
+            }
+
+
 
         }
 
