@@ -3,9 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@drawable/bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="88dp"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/welcomeTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QuicSign"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/alex_brush"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/welcomeTxt"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/welcomeTxt"
@@ -13,7 +43,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/aladin"
         android:text="Welcome to QuicSign App"
-        android:textColor="@color/white"
+        android:textColor="#FFFDFD"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,15 +59,14 @@
         android:backgroundTint="#00000000"
         android:fontFamily="@font/aladin"
         android:text="Show UserList"
-        android:textColor="@color/white"
+        android:textColor="#FAF8F8"
         android:textSize="18sp"
         android:textStyle="bold"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="@+id/welcomeTxt"
         app:layout_constraintStart_toStartOf="@+id/welcomeTxt"
         app:layout_constraintTop_toBottomOf="@+id/welcomeTxt"
-        app:strokeWidth="2dp"
-        app:strokeColor="@color/white"
-        />
+        app:strokeColor="#FDFCFC"
+        app:strokeWidth="2dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
